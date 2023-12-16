@@ -49,7 +49,7 @@ void loop() {
 
   fade();
   stripe();
-  if(random(1, 20) == 9){
+  if(random(1, 50) == 9){
     rainbow();
   }
   
