@@ -47,13 +47,40 @@ void setup() {
 void loop() {
   
 
-  for(int i=0; i<NUMPIXELS + stripeLen; i++) {
+  fade();
+  stripe();
+  if(random(1, 20) == 9){
+    rainbow();
+    delay(10000);
+  }
+  
 
+}
+
+void stripe() {
+  for(int i=0; i<NUMPIXELS + stripeLen; i++) {
     pixels.setPixelColor(i, pixels.Color(0, 208, 255));
     pixels.setPixelColor(i - stripeLen, pixels.Color(0, 0, 0));
     pixels.show();
     delay(DELAYVAL);
   }
+}
 
+void fade() {
+  for(int i=0; i<NUMPIXELS; i++) {
+    pixels.setPixelColor(i, pixels.Color(0, 208, 255));
+    pixels.show();
+    delay(DELAYVAL);
+  }
 
+  for(int i=0; i<NUMPIXELS; i++) {
+
+    pixels.setPixelColor(i, pixels.Color(0, 0, 0));
+    pixels.show();
+    delay(DELAYVAL);
+  }
+}
+
+void rainbow() {
+    pixels.rainbow();
 }
