@@ -51,7 +51,6 @@ void loop() {
   stripe();
   if(random(1, 20) == 9){
     rainbow();
-    delay(10000);
   }
   
 
@@ -83,4 +82,6 @@ void fade() {
 
 void rainbow() {
     pixels.rainbow();
+    pixels.show();
+    delay(10000);
 }
