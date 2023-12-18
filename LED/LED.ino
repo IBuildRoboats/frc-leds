@@ -3,12 +3,12 @@
   #include <avr/power.h>
 #endif
 #define PIN        6
-#define NUMPIXELS 20
+#define NUMPIXELS 150
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-#define DELAYVAL 50
+#define DELAYVAL 10
 
-int stripeLen = 8;
+int stripeLen = 25;
 
 void setup() {
 #if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
@@ -46,13 +46,17 @@ void setup() {
 
 void loop() {
   
+  for(int i=0; i<3; i++) {
+    fade();
+  }
 
-  fade();
-  stripe();
+  for(int i=0; i<3; i++) {
+    stripe();
+  }
+
   if(random(1, 50) == 9){
     rainbow();
   }
-  
 
 }
 
